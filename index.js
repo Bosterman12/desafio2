@@ -77,7 +77,7 @@ export class ProductManager {
     
 
 
-/*class Product {
+class Product {
     constructor(title = "", description = "", price = 0, thumbnail = "", code = "", stock = 0){
         
         this.title = title
@@ -89,7 +89,15 @@ export class ProductManager {
         this.id = Product.incrementID()
     }
     
-     
+    static incrementID(){
+        if(this.idIncrement){
+            this.idIncrement++
+        }else{
+            this.idIncrement = 1
+        }
+
+        return this.idIncrement
+          } 
     
 };
 
@@ -110,7 +118,7 @@ console.log(product3)
 console.log(product4)
 
 
-const prod = new ProductManager()
+/*const prod = new ProductManager()
 
 productManager.addProduct(product1)
 productManager.addProduct(product2)
@@ -122,4 +130,5 @@ console.log(productManager.getProducts())
 console.log(productManager)*/
 
 const prod = new ProductManager('./info.txt')
+prod.addProduct(product2)
 prod.getProducts().then(prod => console.log(prod))
